@@ -51,7 +51,7 @@ create table aluguelEquipamento(
 /* 1 */
 alter table cliente add COLUMN email varchar(150) unique not null;
 alter table cliente add COLUMN cidade varchar(50) not null;
-alter table cliente add COLUMN estado char(2) unique not null;
+alter table cliente add COLUMN estado char(2) not null;
 
 /* 2 */
 INSERT INTO cliente (nomeCliente, cpf, email, cidade, estado) VALUES
