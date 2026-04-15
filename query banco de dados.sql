@@ -157,7 +157,7 @@ update equipamento set qtd = (qtd - 2) where idEquipamento = 2;
 update equipamento set qtd = (qtd - 2) where idEquipamento = 4;
 
 /* 9 */
-select nome, celular from cliente order by nome;
+select nome, cpf from cliente order by nome;
 
 /* 10 */
 select nome, celular from funcionario order by nome;
