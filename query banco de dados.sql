@@ -51,7 +51,7 @@ create table aluguelEquipamento(
 /* 1 */
 alter table cliente add COLUMN email varchar(150) unique not null;
 alter table cliente add COLUMN cidade varchar(50) not null;
-alter table cliente add COLUMN estado char(2) unique not null;
+alter table cliente add COLUMN estado char(2) not null;
 
 /* 2 */
 INSERT INTO cliente (nomeCliente, cpf, email, cidade, estado) VALUES
@@ -157,7 +157,9 @@ update equipamento set qtd = (qtd - 2) where idEquipamento = 2;
 update equipamento set qtd = (qtd - 2) where idEquipamento = 4;
 
 /* 9 */
-select nome, celular from cliente order by nome;
+select nome, cpf from cliente order by nome;
 
 /* 10 */
 select nome, celular from funcionario order by nome;
+
+
