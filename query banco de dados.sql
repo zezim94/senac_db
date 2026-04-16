@@ -606,6 +606,5 @@ FROM
     LEFT JOIN funcionario f ON a.idFuncionario = f.idFuncionario
 GROUP BY
     f.nomeFuncionario,
-    a.dataHoraRetirada,
-    ae.qtd
+    a.dataHoraRetirada
 ORDER BY 'data retirada'
