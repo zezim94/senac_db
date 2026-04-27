@@ -278,11 +278,13 @@ insert into
         valorUnitario,
         qtd
     )
-values (2, 2, 7.00, 3.50, 2);
+values (2, 2, 7.00, 3.50, 2),
+ (4, 2, 3.00, 3.00, 1);
 
 update equipamento set qtd = (qtd - 1) where idEquipamento = 1;
 
 update equipamento set qtd = (qtd - 2) where idEquipamento = 2;
+update equipamento set qtd = (qtd - 1) where idEquipamento = 4;
 
 /* 7 */
 insert into
@@ -541,7 +543,6 @@ update equipamento set qtd = (qtd - 2) where idEquipamento = 2;
 update equipamento set qtd = (qtd - 2) where idEquipamento = 4;
 
 /* atualizando o valor a pagar */
-
 UPDATE aluguel a
 JOIN (
     SELECT idAluguel, SUM(valorItem) AS total
@@ -550,13 +551,25 @@ JOIN (
         idAluguel
 ) ae ON a.idAluguel = ae.idAluguel
 SET
-    a.valorAPagar = ae.total
+    a.valorAPagar = ae.total;
 
 /* 9 */
-select nomeCliente, cpf from cliente order by nome;
+select nomeCliente, cpf from cliente order by nomeCliente;
+
+/* UOL */
+select nomeCliente, cpf from cliente WHERE email like '%uol%' order by nomeCliente;
+
+/* GMAIL */
+select nomeCliente, cpf from cliente WHERE email like '%gmail%' order by nomeCliente;
+
+/* HOTMAIL */
+select nomeCliente, cpf from cliente WHERE email like '%hotmail%' order by nomeCliente;
+
+/* IG */
+select nomeCliente, cpf from cliente WHERE email like '%ig%' order by nomeCliente;
 
 /* 10 */
-select nomeFuncionario, celular from funcionario order by nome;
+select nomeFuncionario, celular from funcionario order by nomeFuncionario;
 
 /* Visão geral */
 SELECT
@@ -587,7 +600,7 @@ FROM
     LEFT JOIN cliente c ON a.idCliente = c.idCliente
 GROUP BY
     c.nomeCliente
-ORDER BY 'data retirada'
+ORDER BY 'data retirada';
 
 /* aluguel por funcionário */
 SELECT
@@ -607,4 +620,4 @@ FROM
 GROUP BY
     f.nomeFuncionario,
     a.dataHoraRetirada
-ORDER BY 'data retirada'
+ORDER BY 'data retirada';
